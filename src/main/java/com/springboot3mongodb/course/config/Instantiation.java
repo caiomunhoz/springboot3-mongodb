@@ -38,6 +38,9 @@ public class Instantiation implements CommandLineRunner{
 		Post p2 = new Post(null, "Good morning", "Woke up happy today!", LocalDate.parse("12/12/2023", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new AuthorDTO(u1));
 		
 		postRepo.saveAll(Arrays.asList(p1, p2));
+		
+		u1.getPosts().addAll(Arrays.asList(p1, p2));
+		userRepo.save(u1);
 	}
 
 }
